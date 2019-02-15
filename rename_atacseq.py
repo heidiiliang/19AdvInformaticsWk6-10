@@ -14,9 +14,7 @@ for line in open(lookupfile):
 	#ignore first line do something for this
 	# mydict['key']
 	# mydict['P013'] = ['A4','WD','1'], line[1]=A4, line[2]=WD, line[3]=1
-	#print(line)
 	line = line.split()
-	#print(line)
 	mydict[line[0]] = [line[2],line[1],line[3]]
 
 #make a file recording oldfile match newfilename
@@ -25,11 +23,11 @@ outfile = open('oldnewfilename.csv','w')
 # This returns the list after the equal
 for file in myfiles:
 
-	#split your oldfile name by _ and use it as a key for Mylist = mydict[‘P013’], [4]is BARCODE, [5]R1/R2
+	#split your oldfile name by _ and use it as a key for Mylist = mydict[‘P013’], [4]is BARCODE, [5]R1/R2.fq.gz
 	oldfile = [file.split('_')[4],file.split('_')[5]]
 	mylist = mydict[oldfile[0]]
 
-	#this makes newfilename = 'WD_A4_1.fq.gz'
+	#this makes newfilename = 'WD_A7_Rep1_P058_R1.fq.gz'
 	newfilename = mylist[0] + '_' + mylist[1] + '_' + 'Rep' + mylist[2] + '_' + oldfile[0] + '_' + oldfile[1]
 	
 	#rename actual files
@@ -39,11 +37,5 @@ for file in myfiles:
 	outfile.write(file + ',' + newfilename + '\n')
 
 outfile.close()	
-
-#print(mydict)
-#print(mylist)
-#print(file)
-#print(oldfile)
-#print(newfilename)
 
 
