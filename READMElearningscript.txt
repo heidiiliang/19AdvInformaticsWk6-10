@@ -1,4 +1,8 @@
+# check job running realtime
+tail -f ../../tophat.e6029006.1 
+
 #count total line
+wc -l
 ls -F |grep -v / | wc -l
 
 # short way:
